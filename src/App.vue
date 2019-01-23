@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
-  </div>
+	<div>
+		<!-- <div v-if="!repoUrl">loading...</div>
+		<div v-else>most star repo is <a :href="repoUrl">{{ repoName }}</a></div> -->
+		<Header></Header>
+		<Section></Section>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+	import Header from './components/header'
+	import Section from './components/section'
+	import axios from 'axios'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+	export default {
+		components: {
+			Header,Section
+		}
+/*		data() {
+			return {
+				repoName: '',
+				repoUrl: ''
+			}
+		},
+		mounted: function() {
+			let url = 'https://api.github.com/search/repositories?q=v&sort=stars'
+			axios.get(url).then(result => {
+				let res = result.data.items[0]
+				this.repoName = res.name
+				this.repoUrl = res.html_url
+			}).catch(msg => {
+				console.log(msg)
+			})
+		}*/
+
+	}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
